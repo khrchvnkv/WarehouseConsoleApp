@@ -72,7 +72,7 @@ namespace WarehouseApp.Models
 
         public void AddBox(Box newBox)
         {
-            if (newBox.Weight > Weight || newBox.Height > Height)
+            if (newBox.Width > Width || newBox.Height > Height)
                 throw new ArgumentException("the size of the box cannot be larger than the size of the pallet");
 
             Boxes.Add(newBox);

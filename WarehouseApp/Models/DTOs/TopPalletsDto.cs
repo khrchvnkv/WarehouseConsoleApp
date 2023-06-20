@@ -7,6 +7,8 @@ namespace WarehouseApp.Models.DTOs
         private readonly int _warehouseId;
         private readonly List<Pallet> _sortedPallets;
 
+        public int PalletsCount => _sortedPallets.Count;
+        
         public TopPalletsDto(int warehouseId, List<Pallet> sortedPallets)
         {
             _warehouseId = warehouseId;

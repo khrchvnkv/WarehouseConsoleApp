@@ -37,10 +37,14 @@ namespace WarehouseApp.Models
             return groupDto;
         }
 
-        public TopPalletsDto GetTopExpirationPalletsData()
+        public TopPalletsDto GetTopExpirationPalletsData(in int topCount = 3)
         {
             var sortedByMaxExpirationDatePallets = Pallets.OrderByDescending(p => p.MaxExpirationDate);
-            var limitList = sortedByMaxExpirationDatePallets.ToList().GetRange(0, 3);
+            var limitList = sortedByMaxExpirationDatePallets.ToList();
+            if (limitList.Count > topCount)
+            {
+                limitList = limitList.GetRange(0, topCount);
+            }
             var sortedByVolumeRangedList = limitList.OrderBy(p => p.Volume).ToList();
             var topPallets = new TopPalletsDto(Id, sortedByVolumeRangedList);
             return topPallets;

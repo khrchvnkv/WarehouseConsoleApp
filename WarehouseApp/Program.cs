@@ -6,7 +6,7 @@ var data = await warehouseDb.ReadDataAsync();
 var warehouseSortingService = new WarehouseSortingService();
 
 var groupPalletsByExpirationData = 
-    warehouseSortingService.GetGroupingPalletsDtos(data);
+    warehouseSortingService.GetGroupedPalletsDtos(data);
 foreach (var groupData in groupPalletsByExpirationData)
 {
     Console.WriteLine(groupData.ToString());

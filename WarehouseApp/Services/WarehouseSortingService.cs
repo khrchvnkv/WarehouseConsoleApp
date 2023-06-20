@@ -5,7 +5,7 @@ namespace WarehouseApp.Services
 {
     public class WarehouseSortingService
     {
-        public List<GroupingPalletsDto> GetGroupingPalletsDtos(in List<Warehouse>? warehouses)
+        public List<GroupingPalletsDto> GetGroupedPalletsDtos(in List<Warehouse>? warehouses)
         {
             var result = new List<GroupingPalletsDto>();
             if (warehouses is null) return result;
